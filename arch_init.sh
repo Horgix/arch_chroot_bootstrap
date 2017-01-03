@@ -2,5 +2,5 @@
 
 pacman-key --init
 pacman-key --populate archlinux
-pacman -Syu
-pacman -S base
+pacman -Syu --noconfirm
+pacman -S base --noconfirm
