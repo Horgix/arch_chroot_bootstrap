@@ -13,3 +13,11 @@ This script has been made to get a minimal working Arch Linux chroot on their
 Ubuntu 16.04 recovery image booted from PXE. This allows me to make sure I get
 the tools I need, including specific stuff like `pacstrap` (even if, yes, it
 could be installed while on Ubuntu without this chroot) to install new systems.
+
+# How to
+
+```
+wget https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_chroot.sh
+chmod +x arch_chroot.sh
+./arch_chroot.sh
+```
