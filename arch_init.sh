@@ -20,7 +20,7 @@ for subvol in boot home var; do
 done
 mount -t btrfs -o subvol=subvol_roothome /dev/sda /mnt/root
 
-pacstrap /mnt base base-devel python python2 btrfs-progs openssh grub intel-ucode
+pacstrap /mnt base base-devel python python2 btrfs-progs openssh grub intel-ucode sudo
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -28,6 +28,8 @@ curl -o /mnt/arch_prepare.sh https://raw.githubusercontent.com/Horgix/arch_chroo
 chmod +x /mnt/arch_prepare.sh
 
 arch-chroot /mnt ./arch_prepare.sh
+
+umount /mnt
 
 #mount -t btrfs -o subvol=subvol_root /dev/sda /mnt/
 #mount -t btrfs -o subvol=subvol_home /dev/sda /mnt/home

@@ -12,7 +12,7 @@ sed -i 's/eth0/eno1/' /etc/netctl/dhcp
 netctl enable dhcp
 
 
-useradd -m horgix
+useradd -m horgix -G wheel
 
 
 
