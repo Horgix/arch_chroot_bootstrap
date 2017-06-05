@@ -17,5 +17,5 @@ could be installed while on Ubuntu without this chroot) to install new systems.
 # How to
 
 ```
-wget https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_chroot.sh && chmod +x arch_chroot.sh && ./arch_chroot.sh
+wget https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_chroot.sh -O arch_chroot.sh && chmod +x arch_chroot.sh && ./arch_chroot.sh
 ```
