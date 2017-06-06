@@ -13,6 +13,7 @@ netctl enable dhcp
 
 
 useradd -m horgix -G wheel
+sed -i 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
 
 
 
@@ -23,7 +24,12 @@ systemctl enable getty@tty1.service
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
+if [ ! -z $1 ]; then
+  echo 'Setting hostname'
+  hostname $1
+fi
+
+
 passwd root
 passwd horgix
-
 

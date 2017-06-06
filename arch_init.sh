@@ -27,7 +27,12 @@ genfstab -U /mnt >> /mnt/etc/fstab
 curl -o /mnt/arch_prepare.sh https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_prepare.sh
 chmod +x /mnt/arch_prepare.sh
 
-arch-chroot /mnt ./arch_prepare.sh
+if [ ! -z $1 ]; then
+  echo 'Found hostname, passing it'
+  arch-chroot /mnt ./arch_prepare.sh $1
+else
+  arch-chroot /mnt ./arch_prepare.sh
+fi
 
 umount /mnt
 
