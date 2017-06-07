@@ -42,7 +42,7 @@ else
   arch-chroot /mnt ./arch_prepare.sh
 fi
 
-umount /mnt
+umount -R /mnt
 
 # In case you want to mount everything like previously but by hand...
 # mount -t btrfs -o subvol=subvol_root /dev/sda /mnt/
