@@ -65,14 +65,28 @@ curl -o /mnt/arch_prepare.sh https://raw.githubusercontent.com/Horgix/arch_chroo
 chmod +x /mnt/arch_prepare.sh
 
 if [ ! -z $1 ]; then
-  echo 'Found hostname, passing it'
+  info 'Found hostname, passing it'
+  info "Let's go for nspawn \o/"
   systemd-nspawn -D /mnt ./arch_prepare.sh $1
+  if [ $? -nq 0 ]; then
+    fail "Failed to start nspawn"
+  else
+    success "Ended running nspawn"
+  fi
 else
+  info "Let's go for nspawn \o/"
   systemd-nspawn -D /mnt ./arch_prepare.sh
+  if [ $? -nq 0 ]; then
+    fail "Failed to start nspawn"
+  else
+    success "Ended running nspawn"
+  fi
 fi
 
+info "Removing arch_prepare.sh script..."
 rm /mnt/arch_prepare.sh
 sync
+info "Unmounting /mnt..."
 umount -R /mnt
 
 # In case you want to mount everything like previously but by hand...
