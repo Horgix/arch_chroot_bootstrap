@@ -39,6 +39,7 @@ tar xzf ./archlinux-bootstrap-2017.06.01-x86_64.tar.gz
 echo "$(awk 'c&&c--{sub(/^#/,"")} /## France/{c=8} 1' /tmp/root.x86_64/etc/pacman.d/mirrorlist)" > /tmp/root.x86_64/etc/pacman.d/mirrorlist
 success "Got a temporary Arch installed"
 
+
 # Actually, I have an arch_init.sh script to install a new Arch so let's get it
 curl -o /tmp/root.x86_64/arch_init.sh https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_init.sh
 chmod +x /tmp/root.x86_64/arch_init.sh
