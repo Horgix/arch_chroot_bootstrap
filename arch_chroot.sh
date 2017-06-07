@@ -22,7 +22,7 @@ header() {  tput setaf 3; echo -n "[ INFO ] "; echo "===== $@ ====="; tput sgr0;
 header "Base setup"
 
 info "Setting up haveged to have enough entropy later on..."
-apt-get install -y haveged  || fail "Failed to install haveged"
+apt-get install -y haveged  || fail "IGNORE Failed to install haveged"
 systemctl start haveged     || fail "Failed to start haveged"
 success "Set up haveged"
 
