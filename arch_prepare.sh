@@ -11,12 +11,11 @@ cp /etc/netctl/examples/ethernet-dhcp /etc/netctl/dhcp
 sed -i 's/eth0/eno1/' /etc/netctl/dhcp
 netctl enable dhcp
 
-
+# Hey I want to be able to sudo
 useradd -m horgix -G wheel
 sed -i 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
 
-
-
+# Vital minimum
 systemctl enable netctl
 systemctl enable sshd
 systemctl enable getty@tty1.service
@@ -29,7 +28,5 @@ if [ ! -z $1 ]; then
   hostname $1
 fi
 
-
 passwd root
 passwd horgix
-
