@@ -51,9 +51,11 @@ if [ "$1" == "--fullinstall" ]; then
   info "Detected --fullinstall ..."
   if [ ! -z $2 ]; then
     info "Found hostname $2 ; passing it to subsequent calls"
+    info "Let's go for nspawn \o/"
     systemd-nspawn -D /tmp/root.x86_64/ ./arch_init.sh $2
   else
     info "No hostname found"
+    info "Let's go for nspawn \o/"
     systemd-nspawn -D /tmp/root.x86_64/ ./arch_init.sh
   fi
 else
