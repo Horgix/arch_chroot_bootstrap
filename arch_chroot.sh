@@ -4,7 +4,7 @@ fail()
 {
   tput bold
   tput setaf 1
-  if [ $1 == "IGNORE" ]; then
+  if [ "$1" == "IGNORE" ]; then
     echo "Something went wrong, stopping."
     tput sgr0
     exit 1
@@ -47,7 +47,7 @@ chmod +x /tmp/root.x86_64/arch_init.sh
 header "Next steps"
 
 # Much smart. So clean. Wow.
-if [ $1 == "--fullinstall" ]; then
+if [ "$1" == "--fullinstall" ]; then
   info "Detected --fullinstall ..."
   if [ ! -z $2 ]; then
     info "Found hostname $2 ; passing it to subsequent calls"
