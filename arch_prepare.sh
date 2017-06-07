@@ -25,7 +25,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 if [ ! -z $1 ]; then
   echo 'Setting hostname'
-  hostname $1
+  hostnamectl set-hostname $1
+  echo $1 > /etc/hostname
 fi
 
 passwd root

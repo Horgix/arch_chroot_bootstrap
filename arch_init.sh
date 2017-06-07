@@ -37,9 +37,9 @@ chmod +x /mnt/arch_prepare.sh
 
 if [ ! -z $1 ]; then
   echo 'Found hostname, passing it'
-  arch-chroot /mnt ./arch_prepare.sh $1
+  systemd-nspawn -D /mnt ./arch_prepare.sh $1
 else
-  arch-chroot /mnt ./arch_prepare.sh
+  systemd-nspawn -D /mnt ./arch_prepare.sh
 fi
 
 rm /mnt/arch_prepare.sh
