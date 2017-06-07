@@ -65,9 +65,9 @@ curl -o /mnt/arch_prepare.sh https://raw.githubusercontent.com/Horgix/arch_chroo
 chmod +x /mnt/arch_prepare.sh
 
 if [ ! -z $1 ]; then
-  info 'Found hostname, passing it'
+  info "Please pass $1 as arg to arch_init to set hostname"
   info "Let's go for nspawn \o/"
-  systemd-nspawn -D /mnt ./arch_prepare.sh $1
+  systemd-nspawn -b --bind /dev/sda -D /mnt # ./arch_prepare.sh $1
   if [ $? -nq 0 ]; then
     fail "Failed to start nspawn"
   else
@@ -75,7 +75,7 @@ if [ ! -z $1 ]; then
   fi
 else
   info "Let's go for nspawn \o/"
-  systemd-nspawn -D /mnt ./arch_prepare.sh
+  systemd-nspawn -b --bind /dev/sda -D /mnt # ./arch_prepare.sh
   if [ $? -nq 0 ]; then
     fail "Failed to start nspawn"
   else

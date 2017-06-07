@@ -50,13 +50,13 @@ header "Next steps"
 if [ "$1" == "--fullinstall" ]; then
   info "Detected --fullinstall ..."
   if [ ! -z $2 ]; then
-    info "Found hostname $2 ; passing it to subsequent calls"
+    info "Please pass $2 as arg to arch_init to set hostname"
     info "Let's go for nspawn \o/"
-    systemd-nspawn --bind /dev/sda -D /tmp/root.x86_64/ ./arch_init.sh $2
+    systemd-nspawn -b --bind /dev/sda -D /tmp/root.x86_64/ # ./arch_init.sh $2
   else
     info "No hostname found"
     info "Let's go for nspawn \o/"
-    systemd-nspawn --bind /dev/sda -D /tmp/root.x86_64/ ./arch_init.sh
+    systemd-nspawn -b --bind /dev/sda -D /tmp/root.x86_64/ # ./arch_init.sh
   fi
 else
   info 'No full install, just chrooting you'
