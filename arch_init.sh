@@ -29,7 +29,7 @@ mount -t btrfs -o subvol=subvol_roothome /dev/sda /mnt/root
 
 # Base setup
 pacstrap /mnt base base-devel python python2 btrfs-progs openssh grub intel-ucode sudo
-#genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 # And let's finally prepare it to a fully working installation :)
 curl -o /mnt/arch_prepare.sh https://raw.githubusercontent.com/Horgix/arch_chroot_bootstrap/master/arch_prepare.sh
