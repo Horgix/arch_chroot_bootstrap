@@ -42,6 +42,8 @@ else
   arch-chroot /mnt ./arch_prepare.sh
 fi
 
+rm /mnt/arch_prepare.sh
+sync
 umount -R /mnt
 
 # In case you want to mount everything like previously but by hand...
