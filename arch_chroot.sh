@@ -34,7 +34,7 @@ success "Installed systemd-nspawn"
 # We just want a temporary arch in a chroot, so do it in /tmp
 info "Getting a temporary Arch for further operations"
 cd /tmp
-curl -O http://mir.archlinux.fr/iso/2017.06.01/archlinux-bootstrap-2017.06.01-x86_64.tar.gz
+curl -O http://mir.archlinux.fr/iso/2018.03.01/archlinux-bootstrap-2018.03.01-x86_64.tar.gz
 tar xzf ./archlinux-bootstrap-2017.06.01-x86_64.tar.gz
 echo "$(awk 'c&&c--{sub(/^#/,"")} /## France/{c=8} 1' /tmp/root.x86_64/etc/pacman.d/mirrorlist)" > /tmp/root.x86_64/etc/pacman.d/mirrorlist
 success "Got a temporary Arch installed"
